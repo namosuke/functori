@@ -60,7 +60,7 @@ function Form(props) {
       setError('funcName', { type: "manual", message: regex[key][0] + " は既に言われています" });
       return;
     }
-    let lastWordToCPU = regex[key][0].slice(-1);
+    let lastWordToCPU = key.slice(-1);
     setContents(prevContents => {
       let nowContents = prevContents.concat();
       nowContents.push({
@@ -79,8 +79,10 @@ function Form(props) {
     // CPUのターン
     const shuffled = shuffle(Object.keys(regex));
     let bring = null;
+    console.log(lastWord);
+    console.log(lastWordToCPU);
     for (const element of shuffled) {
-      if (element.slice(0, 1) === lastWordToCPU && !(element in saids)) {
+      if (element.slice(0, 1) === lastWordToCPU && !(element in saids) && /[^0-9]$/.test(element)) {
         bring = element;
         break;
       }
@@ -102,7 +104,7 @@ function Form(props) {
       });
       return nowContents;
     });
-    setLastWord(regex[bring][0].slice(-1));
+    setLastWord(bring.slice(-1));
   }
   function gameOver(text, win = false) {
     setIsEnable(false);
