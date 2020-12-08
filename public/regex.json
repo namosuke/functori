@@ -46248,10 +46248,5 @@
         "__halt_compiler",
         "function.halt-compiler.php",
         "コンパイラの実行を中止する"
-    ],
-    "": [
-        "ソケットコンテキストオプション",
-        "context.socket.php",
-        "ソケットコンテキストオプション一覧"
     ]
 }
