@@ -79,8 +79,6 @@ function Form(props) {
     // CPUのターン
     const shuffled = shuffle(Object.keys(regex));
     let bring = null;
-    console.log(lastWord);
-    console.log(lastWordToCPU);
     for (const element of shuffled) {
       if (element.slice(0, 1) === lastWordToCPU && !(element in saids) && /[^0-9]$/.test(element)) {
         bring = element;
